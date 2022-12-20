@@ -52,7 +52,7 @@ export const outputPortfolio = (tokens: Token[]) => {
   //@NOTE: Will output portfolio of user
   console.info("PORTFOLIO");
   tokens.forEach((item) => {
-    console.info(`TOKEN: ${item.token} VALUE: ${item.value}`);
+    console.info(`Token: ${item.token}\tValue (USD): ${item.value}`);
   });
 };
 
