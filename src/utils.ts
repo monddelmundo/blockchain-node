@@ -36,7 +36,10 @@ export const getYearMonthDay = (dateStr: string) => {
   const dDate = new Date(dateStr);
   const year = dDate.getFullYear();
   const month = dDate.getMonth() + 1;
-  const day = dDate.getDate();
+  const day =
+    dDate.getDate() && dDate.getDate().toString().length == 1
+      ? `0${dDate.getDate()}`
+      : dDate.getDate();
 
   return `${year}-${month}-${day}`;
 };
