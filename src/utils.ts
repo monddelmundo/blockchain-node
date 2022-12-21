@@ -36,12 +36,12 @@ export const getYearMonthDay = (dateStr: string) => {
   const dDate = new Date(dateStr);
   const year = dDate.getFullYear();
   const month = dDate.getMonth() + 1;
-  const day =
-    dDate.getDate() && dDate.getDate().toString().length == 1
-      ? `0${dDate.getDate()}`
-      : dDate.getDate();
+  const displayMonth =
+    month && month.toString().length == 1 ? `0${month}` : month;
+  const day = dDate.getDate();
+  const displayDay = day && day.toString().length == 1 ? `0${day}` : day;
 
-  return `${year}-${month}-${day}`;
+  return `${year}-${displayMonth}-${displayDay}`;
 };
 
 export const convertToUSD = (amount: number, usdEquivalent: number) => {
@@ -61,6 +61,13 @@ export const isDifferentToken = (argToken: any, rowToken: string) => {
 };
 
 export const shouldNotProcessDate = (argDate: any, rowTimestamp: string) => {
+  if (
+    !!!argDate ||
+    typeof argDate !== "string" ||
+    !!!rowTimestamp ||
+    typeof rowTimestamp !== "string"
+  )
+    return true;
   return (
     argDate &&
     typeof argDate === "string" &&
