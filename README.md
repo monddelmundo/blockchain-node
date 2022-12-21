@@ -15,6 +15,10 @@ $ npm i -g ts-node typescript
 # Install dependencies
 $ npm install
 
+# Create .env
+$ touch .env     
+# Note: Input the location of CSV database. Enter your crypto compare api key and crypto api url - see env.sample for your reference
+
 # Run the app
 $ npm start -- --<parameter> <value>
 ```
